@@ -1,0 +1,71 @@
+.key{
+    font-size:12px;
+    font-weight: bold;
+    font-family:sans-serif;
+}
+.value{
+    font-size:14px;
+    font-family:sans-serif;
+}
+.productImgContainer{
+    width: 100px;
+    height:100px;
+    overflow:hidden;
+    text-align:center;
+}
+
+.productImgContainer img{
+    max-width: 100%;
+    max-height:100%;
+    object-fit:contain;
+
+}
+.userListEdit{
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: #3bb077;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.userListDel{
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: #b03b41;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.userListSearch{
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: #101dd1;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.userListDelete{
+    color: red;
+    cursor: pointer;
+}
+.container-form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+h2 {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 0.85;
+    text-align: center;
+    margin: 10px 0 12px 0;
+}
+.btn-primary {
+    background: rgb(32, 31, 31);
+}
