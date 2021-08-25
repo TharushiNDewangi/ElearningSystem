@@ -49,7 +49,7 @@ const Salary = (props) => {
         console.log(id);
         axios.put(`http://localhost:8065/api/salary/edit/${id}`, data)
             .then(res => {
-                alert("approved");
+                alert("edited");
                 console.log(data);
                 console.log('added');
             })
@@ -140,7 +140,7 @@ const Salary = (props) => {
             <Modal
                 show={paperDetailModal}
                 handleClose={handleCloseProductDetailsModal}
-                modalTitle={'Workshop Details'}
+                modalTitle={'Salary Details'}
                 size="lg"
 
             >
@@ -180,7 +180,7 @@ const Salary = (props) => {
             <Modal
                 show={deleteDetailModal}
                 handleClose={handleCloseDeleteDetailsModal}
-                modalTitle={'Delete Classfees'}
+                modalTitle={'Delete Salary'}
                 size="lg"
 
             >
@@ -210,7 +210,7 @@ const Salary = (props) => {
                         <button className="userListDel" onClick={e =>
                             axios.delete(`http://localhost:8065/api/salary/del/${deleteDetailModal._id}`)
                                 .then(res => {
-                                    alert("approved");
+                                    alert("Deleted");
                                     console.log('added');
                                 })}>Delete</button>
 
@@ -234,7 +234,7 @@ const Salary = (props) => {
             <Modal
                 show={updateDetailModal}
                 handleClose={handleCloseUpdateDetailsModal}
-                modalTitle={'Workshop Details'}
+                modalTitle={'Update Salary'}
                 size="lg"
 
             >
@@ -245,24 +245,28 @@ const Salary = (props) => {
                         placeholder={updateDetailModal.email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
+                   
                     <Input
                         label="Name"
                         value={amount}
                         placeholder={updateDetailModal.amount}
                         onChange={(e) => setAmount(e.target.value)}
                     />
+                  
                     <Input
                         label="Name"
                         value={year}
                         placeholder={updateDetailModal.year}
                         onChange={(e) => setYear(e.target.value)}
                     />
+                  
                     <Input
                         label="Name"
                         value={month}
                         placeholder={updateDetailModal.month}
                         onChange={(e) => setMonth(e.target.value)}
                     />
+                    </Row><Row>
                     <Col md="6">
                         <button className="userListDel" handleClose={handleCloseUpdateDetailsModal}
                         >Cancel</button>
@@ -306,24 +310,28 @@ const Salary = (props) => {
                         placeholder={searchresult.email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
+                    
                     <Input
                         label="Name"
                         value={amount}
                         placeholder={searchresult.amount}
                         onChange={(e) => setAmount(e.target.value)}
                     />
+                  
                     <Input
                         label="Name"
                         value={year}
                         placeholder={searchresult.year}
                         onChange={(e) => setYear(e.target.value)}
                     />
+                  
                     <Input
                         label="Name"
                         value={month}
                         placeholder={searchresult.month}
                         onChange={(e) => setMonth(e.target.value)}
                     />
+                    </Row><Row>
                     <Col md="6">
                         <button className="userListDel"
                         >Delete</button>
@@ -360,7 +368,7 @@ const Salary = (props) => {
                                 <input
                                     type="text"
                                     id="header-search"
-                                    placeholder="Search Fees id"
+                                    placeholder="Search Salary id"
                                     name="s"
                                     onChange={(e) => setSearchid(e.target.value)}
                                 />

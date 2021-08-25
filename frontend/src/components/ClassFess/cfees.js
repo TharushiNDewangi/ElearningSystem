@@ -43,7 +43,7 @@ const Classfees = (props) => {
         console.log(id);
         axios.put(`http://localhost:8065/api/classfees/edit/${id}`, data)
             .then(res => {
-                alert("approved");
+                alert("EDited");
                 console.log(data);
                 console.log('added');
             })
@@ -134,7 +134,7 @@ const Classfees = (props) => {
             <Modal
                 show={paperDetailModal}
                 handleClose={handleCloseProductDetailsModal}
-                modalTitle={'Workshop Details'}
+                modalTitle={'Classfees Details'}
                 size="lg"
 
             >
@@ -204,7 +204,7 @@ const Classfees = (props) => {
                         <button className="userListDel" onClick={e =>
                             axios.delete(`http://localhost:8065/api/classfees/del/${deleteDetailModal._id}`)
                                 .then(res => {
-                                    alert("approved");
+                                    alert("Deleted");
                                     console.log('added');
                                 })} >Delete</button>
 
@@ -228,7 +228,7 @@ const Classfees = (props) => {
             <Modal
                 show={updateDetailModal}
                 handleClose={handleCloseUpdateDetailsModal}
-                modalTitle={'Workshop Details'}
+                modalTitle={'Update Classfees'}
                 size="lg"
 
             >
@@ -257,6 +257,7 @@ const Classfees = (props) => {
                         placeholder={updateDetailModal.month}
                         onChange={(e) => setMonth(e.target.value)}
                     />
+                     </Row><Row>
                     <Col md="6">
                         <button className="userListDel" handleClose={handleCloseUpdateDetailsModal}
                         >Delete</button>
@@ -300,24 +301,28 @@ const Classfees = (props) => {
                         placeholder={searchresult.email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
+                   
                     <Input
                         label="Name"
                         value={amount}
                         placeholder={searchresult.amount}
                         onChange={(e) => setAmount(e.target.value)}
                     />
+                    
                     <Input
                         label="Name"
                         value={year}
                         placeholder={searchresult.year}
                         onChange={(e) => setYear(e.target.value)}
                     />
+                   
                     <Input
                         label="Name"
                         value={month}
                         placeholder={searchresult.month}
                         onChange={(e) => setMonth(e.target.value)}
                     />
+                    </Row><Row>
                     <Col md="6">
                         <button className="userListDel"
                         >Delete</button>
@@ -374,10 +379,10 @@ const Classfees = (props) => {
                                     <th>Feesid</th>
                                     {/* <th>Studentid</th>
                                     <th>classid</th> */}
-                                    <th>email</th>
-                                    <th>month</th>
-                                    <th>year</th>
-                                    <th>amount</th>
+                                    <th>Email</th>
+                                    <th>Month</th>
+                                    <th>Year</th>
+                                    <th>Amount</th>
 
 
                                 </tr>

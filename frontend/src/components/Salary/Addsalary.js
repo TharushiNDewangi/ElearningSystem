@@ -25,7 +25,7 @@ class AddSalary extends Component {
         this.state = initialState;
     }
     componentDidMount(){
-        axios.get('http://localhost:8065/api/studentInstitute/viewall')
+        axios.get('http://localhost:8065/api/teachers/view')
         .then(res => {
             this.setState({ subjects: res.data.data}, () => {
                 let data=[];
@@ -82,7 +82,7 @@ class AddSalary extends Component {
   <div class="form-group">
     <label htmlFor="name">Slary ID</label>
     <input 
-     type="Number"
+     type="text"
      className="form-control" 
      id="feesId"
      name="feesId" 
