@@ -7,7 +7,7 @@ import Modal from '../../components/UI/Modal';
 import axios from "axios";
 import './style.css';
 
-const Classfees = (props) => {
+const get = (props) => {
 
 
     const [workshops, setWorkshops] = useState([]);
@@ -16,9 +16,6 @@ const Classfees = (props) => {
     const [updateDetailModal, setupdateDetails] = useState(null);
     const [deleteDetailModal, setDeleteDetails] = useState(null);
     const [searchDetailModal, setSearchDetails] = useState(null);
-    const [bymonth, setbymonth] = useState([]);
-    const [MonthSearchid, setMonthSearchid] = useState("");
-    const [MonthDetails, setMonthDetails] = useState(null);
     
 
     const [email, setEmail] = useState("");
@@ -28,7 +25,7 @@ const Classfees = (props) => {
     const [searchid, setSearchid] = useState("");
     const [clsses, setClass] = useState("");
 
-    
+
     // const token = localStorage.getItem('token');
     // const config = {
     //     headers: { Authorization: `Bearer ${token}` }
@@ -49,17 +46,6 @@ const Classfees = (props) => {
                 alert("EDited");
                 console.log(data);
                 console.log('added');
-            })
-        //dispatch(addProduct(form)).then(() => setShow(false));
-    };
-    const Seachbymonth = (month) => {
-
-        axios.get(`http://localhost:8065/api/classfees/getclassinmonth/${month}`)
-            .then(res => {
-                console.log(res.data.data);
-                setbymonth(res.data.data)
-                console.log('added');
-                console.log(res.data);
             })
         //dispatch(addProduct(form)).then(() => setShow(false));
     };
@@ -360,61 +346,6 @@ const Classfees = (props) => {
             </Modal>
         );
     }
-    const handleCloseMonthSearchDetailsModal = () => {
-        setbymonth(false);
-    }
-    
-    const showmonthDetailModal = (month) => {
-
-        setMonthDetails(month);
-        console.log('dewww' + month);
-
-    }
-    const renderMonthSearchDetailsModal = () => {
-
-        if (!bymonth) {
-            return null;
-        }
-        console.log('dewnnn');
-        return (
-            <Modal
-                show={bymonth}
-                handleClose={handleCloseMonthSearchDetailsModal}
-                modalTitle={'Your Seach Result'}
-                size="lg"
-
-            >
-                <Row>
-                    <Col>
-                        <Table style={{ fontsize: 12 }} responsive="sm">
-                            <thead>
-                                <tr >
-                                    <th>Feesid</th>
-                                    {/* <th>Studentid</th>
-                                    <th>classid</th> */}
-                                    <th>Email</th>
-                                    <th>Month</th>
-                                    <th>Year</th>
-                                    <th>Amount</th>
-                                    </tr>
-                                
-                            </thead>
-                            <tbody>{bymonth.map((workshops, index) => (
-                                <tr >
-
-                                    <td onClick={() => showmonthDetailModal(workshops)}
-                                        key={workshops._id}>{workshops.feesId}</td>
-                                   
-                                    <td>{workshops.email}</td>
-                                    <td>{workshops.month}</td>
-                                    <td>{workshops.year}</td>
-                                    <td>{workshops.amount}</td>
-                                    <td>
-                                    </td></tr>))}
-                            </tbody>
-                        </Table></Col></Row></Modal>);
-    }
-
 
 
     return (
@@ -434,17 +365,6 @@ const Classfees = (props) => {
                                 />
                                 <button className="userListSearch" type="submit" onClick={() => Searchresult(searchid)}>Search</button>
                             </dv>
-                            <dv>
-                                <input
-                                    type="text"
-                                    id="header-search"
-                                    placeholder="Enter Month"
-                                    name="s"
-                                    onChange={(e) => setMonthSearchid(e.target.value)}
-                                />
-                                <button className="userListSearch" type="submit" onClick={() => Seachbymonth(MonthSearchid)}>Get Monthly Details</button>
-                            </dv>
-
 
 
                         </div>
@@ -522,7 +442,6 @@ const Classfees = (props) => {
             {renderUpdateDetailsModal()}
             {renderDeleteDetailsModal()}
             {renderSearchDetailsModal()}
-            {renderMonthSearchDetailsModal()}
 
 
         </Layout>

@@ -7,7 +7,7 @@ import Signup from './containers/Signup';
 import PrivateRoute from './components/HOC/PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { isUserLoggedIn,getAllCategory} from './actions'
-import Orders from './containers/Orders';
+
 import ClassFees from './components/ClassFess/cfees';
 import Salary from './components/Salary/salary';
 import AddSalary from './components/Salary/Addsalary';
@@ -43,7 +43,6 @@ function App() {
      
        <Switch>
          <PrivateRoute path = "/" exact component ={ Home }/>
-         <PrivateRoute path = "/orders" exact component = {Orders}/>
          <PrivateRoute path = "/classfees" exact component = {ClassFees}/>
          <PrivateRoute path = "/salary" exact component = {Salary}/>
          <PrivateRoute path = "/addsalary" exact component = {AddSalary}/>

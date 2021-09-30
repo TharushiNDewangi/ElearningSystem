@@ -9,8 +9,11 @@ import { addProduct, deleteproductbyid, updateproductbyid } from '../../actions'
 import { generatePublicUrl } from '../../urlConfig';
 import axios from "axios";
 import Select from 'react-select';
-
+import Pdf from "react-to-pdf";
 import './style.css';
+const ref = React.createRef();
+
+
 const initialState = {
     feesId: 0,
     email: '',
@@ -140,6 +143,7 @@ class Addcourse extends Component {
                                 className="form-control"
                                 id="email"
                                 name="email"
+                                placeholder="Enter Email"
                                 value={this.state.email}
                                 onChange={this.onChange}
                             />
@@ -161,6 +165,7 @@ class Addcourse extends Component {
                                 className="form-control"
                                 id="des"
                                 name="month"
+                                placeholder="Enter Month"
                                 value={this.state.month}
                                 onChange={this.onChange}
                             />
@@ -171,6 +176,7 @@ class Addcourse extends Component {
                                     className="form-control"
                                     id="des"
                                     name="year"
+                                    placeholder="Enter Year"
                                     value={this.state.year}
                                     onChange={this.onChange}
                                 /></div>
@@ -179,8 +185,18 @@ class Addcourse extends Component {
 
 
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
+                    <div ref={ref}>
+                        <h1>{this.state.feesId}</h1>
+                        <p>{this.state.selectedsub}</p>
+                        <p>{this.state.amount}</p>
+                        <p>{this.state.email}</p>
+                        <p>{this.state.month}</p>
+                    </div>
+                    <Pdf targetRef={ref} filename="recept.pdf">
+                        {({ toPdf }) => <button onClick={toPdf}>Capture as PDF</button>}
+                    </Pdf>
 
 
                 </div>

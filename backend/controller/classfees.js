@@ -9,13 +9,11 @@ const nodemailer = require("nodemailer");
 
 exports.createclassfees = (req, res) => {
 
-    // res.status(200).json({file: req.files , body:req.body});
+    
     const {
         feesId, email, amount, year, month, classid, studentid
     } = req.body;
-    //const feesId=
-    //const ClassId= {Class.findOne({ClassId:classid}).select(ClassId)}
-   console.log(feesId);
+  
     const classfees = new Classfees({
         feesId,
         email,
@@ -160,21 +158,6 @@ exports.getclassfees = (req, res) => {
     });
 }
 
-// exports.getall = async (req, res) => {
-//     await Classfees.find({}).then(
-//         Class.findOne({classid:lassid}).select(ClassId).then(Student.findOne({studentid:studentid}).select(studentId))
-//     )
-//         .then(data => {
-//             console.log(data);
-//             console.log(data.classId);
-//             res.status(200).send({ data: data });
-//         }).catch(err => {
-//             res.status(500).send({ error: err.massage })
-//             console.log(err);
-//         });
-
-
-// }
 exports.getall = async (req, res) => {
     await Classfees.find({})
         .then(data => {
@@ -249,17 +232,57 @@ exports.getfeesbyid=async(req,res)=>{
     }
     
   }
+//get month details
+  exports.getfeesbymonth=(req,res)=>{
+    console.log('hey')
+    const { month } = req.params;
+    console.log("pro id", month)
+    console.log(req.params);
+        Classfees.find({month: month}).populate('fees', 'amount email ')
+        .exec((error, fees) => 
+        {
+            console.log("gf"+fees._id);
+            if (error) {
+                return res.status(400).json({ error });
+            }
+            if (fees) {
+                
+                console.log(fees);
+                res.status(200).send({ data: fees });
+            }
+        });
+        
+    }
+    
+  
   exports.getfeesbyfeesid=async(req,res)=>{
     const feesId= req.body.feesId;
-    //const feesId=
+    
     
         console.log("dew"+feesId)
-        //console.log(req.params);
+        
         await  Classfees.findOne({feesId:feesId})
         .then(data => {
             console.log(data);
            res.status(200).send({ data: data });
-           //console.log(subjects);
+           
+       }).catch(err=>{
+           res.status(400).send({error:err.massage})
+       });
+    
+    
+  }
+  exports.getmothby=async(req,res)=>{
+    const month= req.body.month;
+    
+    
+        console.log("dew"+month)
+        
+        await  Classfees.find({month:month})
+        .then(data => {
+            console.log(data);
+           res.status(200).send({ data: data });
+           
        }).catch(err=>{
            res.status(400).send({error:err.massage})
        });

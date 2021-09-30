@@ -1,7 +1,7 @@
 const router=require("express").Router();
 const { requireSignin,sellermiddleware } = require('../middleware/index')
 const {addcategory,getcategory}=require('../controller/classfees') 
-const {createclassfees,getfeesbyid,getall,updateclassfees,deleteById ,getfeesbyfeesid ,getclass} = require('../controller/classfees');
+const {createclassfees,getfeesbyid,getall,updateclassfees,deleteById ,getmothby,getfeesbyfeesid ,getclass,getfeesbymonth} = require('../controller/classfees');
 //const Product = require('../models/product');
 const multer = require('multer');
 //const upload=multer({dest:'uploads/'})
@@ -20,4 +20,7 @@ router.delete('/classfees/del/:_id',deleteById);
 router.get('/classfees/:feesId',getfeesbyid);
 router.post('/classfees/sech',getfeesbyfeesid);
 router.get('/classfees/getclass/:id',getclass);
+router.get('/classfees/getclassinmonth/:month',getfeesbymonth);
+router.get('/classfees/seachclassinmonth',getmothby);
+
  module.exports = router;  

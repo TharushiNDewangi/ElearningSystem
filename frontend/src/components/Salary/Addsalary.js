@@ -3,8 +3,11 @@ import Layout from '../../components/Layout'
 import { Container, Row, Col, Table } from 'react-bootstrap';
 import axios from "axios";
 import Select from 'react-select';
-
+import Pdf from "react-to-pdf";
 import './style.css';
+const ref = React.createRef();
+
+
 const initialState = {
     feesId: 0,
     email: '',
@@ -80,7 +83,7 @@ class AddSalary extends Component {
                 <div className="container-form">  
                 <form onSubmit={this.onSubmit}>
   <div class="form-group">
-    <label htmlFor="name">Slary ID</label>
+    <label htmlFor="name">Salary ID</label>
     <input 
      type="text"
      className="form-control" 
@@ -106,6 +109,7 @@ class AddSalary extends Component {
      className="form-control" 
      id="email" 
      name="email" 
+     placeholder="Enter Email"
      value={this.state.email}
      onChange={this.onChange}
      />
@@ -126,6 +130,7 @@ class AddSalary extends Component {
      type="text" 
      className="form-control" 
      id="des" 
+     placeholder="Enter Month"
      name="month" 
      value={this.state.month}
      onChange={this.onChange}
@@ -137,6 +142,7 @@ class AddSalary extends Component {
      className="form-control" 
      id="des" 
      name="year" 
+     placeholder="Enter Year"
      value={this.state.year}
      onChange={this.onChange}
      /></div>
@@ -147,9 +153,22 @@ class AddSalary extends Component {
   
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-             
+
+             <div ref={ref}>
+                        <h1>{this.state.feesId}</h1>
+                        <p>{this.state.selectedsub}</p>
+                        <p>{this.state.amount}</p>
+                        <p>{this.state.email}</p>
+                        <p>{this.state.month}</p>
+                    </div>
+                    <Pdf targetRef={ref} filename="recept.pdf">
+                        {({ toPdf }) => <button onClick={toPdf}>Capture as PDF</button>}
+                    </Pdf>
+
+
+                </div>
                
-            </div>
+           
           
            
             

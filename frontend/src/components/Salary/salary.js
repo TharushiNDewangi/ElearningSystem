@@ -240,28 +240,28 @@ const Salary = (props) => {
             >
                 <Row>
                     <Input
-                        label="Name"
+                        label="Email"
                         value={email}
                         placeholder={updateDetailModal.email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                    
                     <Input
-                        label="Name"
+                        label="Amount"
                         value={amount}
                         placeholder={updateDetailModal.amount}
                         onChange={(e) => setAmount(e.target.value)}
                     />
                   
                     <Input
-                        label="Name"
+                        label="Year"
                         value={year}
                         placeholder={updateDetailModal.year}
                         onChange={(e) => setYear(e.target.value)}
                     />
                   
                     <Input
-                        label="Name"
+                        label="Month"
                         value={month}
                         placeholder={updateDetailModal.month}
                         onChange={(e) => setMonth(e.target.value)}
@@ -305,28 +305,28 @@ const Salary = (props) => {
             >
                 <Row>
                     <Input
-                        label="Name"
+                        label="Email"
                         value={email}
                         placeholder={searchresult.email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                     
                     <Input
-                        label="Name"
+                        label="Amount"
                         value={amount}
                         placeholder={searchresult.amount}
                         onChange={(e) => setAmount(e.target.value)}
                     />
                   
                     <Input
-                        label="Name"
+                        label="Year"
                         value={year}
                         placeholder={searchresult.year}
                         onChange={(e) => setYear(e.target.value)}
                     />
                   
                     <Input
-                        label="Name"
+                        label="Month"
                         value={month}
                         placeholder={searchresult.month}
                         onChange={(e) => setMonth(e.target.value)}
@@ -388,10 +388,10 @@ const Salary = (props) => {
                                     <th>Salary Id</th>
                                     {/* <th>Studentid</th>
                                     <th>classid</th> */}
-                                    <th>email</th>
-                                    <th>month</th>
-                                    <th>year</th>
-                                    <th>amount</th>
+                                    <th>Email</th>
+                                    <th>Month</th>
+                                    <th>Year</th>
+                                    <th>Amount</th>
 
 
                                 </tr>
